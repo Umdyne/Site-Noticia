@@ -32,7 +32,7 @@
   const dados = ref({ articles: [] });
   
   async function recebe() {  
-    const response = await fetch(`https://newsapi.org/v2/everything?q=tesla&from=2023-10-02&sortBy=publishedAt&apiKey=b991ab4e7d1c4a1a87468a17fcc49f82`);
+    const response = await fetch(`https://newsapi.org/v2/everything?domains=wsj.com&apiKey=b991ab4e7d1c4a1a87468a17fcc49f82`);
     const valores = await response.json();
     dados.value = valores;
   }
