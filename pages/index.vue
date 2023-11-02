@@ -27,17 +27,16 @@
   </template>
   
   <script setup>
-
-  
   const dados = ref({ articles: [] });
-  
-  async function recebe() {  
+
+  async function recebe() {
     const response = await fetch(`https://newsapi.org/v2/top-headlines?sources=google-news-br&apiKey=b991ab4e7d1c4a1a87468a17fcc49f82`);
     const valores = await response.json();
-    dados.value = valores;
+    dados.value.articles = valores.articles; // Corrected this line
   }
+
   onMounted(async () => {
     await recebe();
-    console.log(dados.articles);
+    console.log(dados.value.articles); // Corrected this line
   });
-  </script>
+</script>
